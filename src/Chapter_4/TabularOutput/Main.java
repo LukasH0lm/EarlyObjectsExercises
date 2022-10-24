@@ -1,4 +1,4 @@
-package TabularOutput;
+package Chapter_4.TabularOutput;
 
 public class Main {
     public static void main(String[] args) {

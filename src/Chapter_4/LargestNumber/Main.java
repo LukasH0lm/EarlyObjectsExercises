@@ -1,4 +1,4 @@
-package LargestNumber;
+package Chapter_4.LargestNumber;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package factorial;
+package Chapter_4.factorial;
 
 public class Main {
 
