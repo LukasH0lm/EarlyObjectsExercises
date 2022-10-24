@@ -3,7 +3,9 @@ package Chapter_4.factorial;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println(estimateE(3.0, 2));
+        System.out.println("!10 = " + factorial(10));
+        System.out.println("e = " + estimateE(3.0));
+        System.out.println("e^2 = " + estimateE(3.0, 2));
     }
 
     static public double factorial(double number){
@@ -15,8 +17,7 @@ public class Main {
         return res;
     }
 
-    static public double estimateE(double inputnumber){
-        double number = (double) inputnumber;
+    static public double estimateE(double number){
         double res = 1;
         while(number > 0){
             res = res + 1 / factorial(number);
