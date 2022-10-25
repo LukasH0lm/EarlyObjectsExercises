@@ -3,7 +3,7 @@ package Chapter_5.AproxPI;
 public class Main {
 
     public static void main(String[] args){
-        System.out.println(aproxPI(1000));
+        System.out.println(aproxPI(200000));
 
     }
 
