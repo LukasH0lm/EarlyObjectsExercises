@@ -12,7 +12,7 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
         int number = 0;
-        int largest = 0;
+        int largest = Integer.MIN_VALUE;
 
         for(int i= 0;i<10;i++){
             System.out.print("next int: ");
