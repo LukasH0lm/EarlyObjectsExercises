@@ -1,19 +1,24 @@
 package Chapter_6.PalindromeNumbers;
 
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        System.out.println("-".repeat(103));
+        System.out.println("    Lukash0lm's palindrome checker, enter a string to check if it's a palindrome, or \"exit\" to exit");
+        System.out.println("-".repeat(103));
 
         while (true) {
             System.out.print("input: ");
-            String number = scanner.next();
-            System.out.println(number +" is a palindrome? " + PalindromeNumbers(number) + "\n");
+            String input = scanner.next();
+            if (Objects.equals(input, "exit")){ break; }
+            System.out.println(input +" is a palindrome? " + PalindromeChecker(input) + "\n");
         }
     }
 
-    public static boolean PalindromeNumbers(String input){
+    public static boolean PalindromeChecker(String input){
 
         //checks if the String is empty or a single character, and therefore is a palindrome
         if (input.equals("") || input.length() == 1){
@@ -27,12 +32,12 @@ public class Main {
             return false;
         }
 
-        StringBuilder nextNumber = new StringBuilder(input);
+        StringBuilder nextInput = new StringBuilder(input);
 
-        nextNumber.deleteCharAt(0);
-        nextNumber.deleteCharAt(nextNumber.length() - 1);
+        nextInput.deleteCharAt(0);
+        nextInput.deleteCharAt(nextInput.length() - 1);
 
-        return PalindromeNumbers(nextNumber.toString());
+        return PalindromeChecker(nextInput.toString());
 
         }
 
