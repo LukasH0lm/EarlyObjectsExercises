@@ -36,7 +36,7 @@ public class Main {
                 }
             }else{
                 if (vOrientation == verticalOrientation.DOWN){
-                    System.out.println(" ".repeat(i) + "*".repeat(10 - i));
+                    System.out.println(" ".repeat(i - 1) + "*".repeat(10 - i));
                 }else{
                     System.out.println(" ".repeat(10 - i) + "*".repeat(i));
                 }

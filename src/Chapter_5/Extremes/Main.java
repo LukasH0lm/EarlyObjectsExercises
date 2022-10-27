@@ -4,37 +4,36 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
         System.out.println(extremes());
 
     }
 
-    public static int extremes(){
+    public static int extremes() {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("how many number: ");
-        int numberAmmount = scanner.nextInt();
+        System.out.print("how many numbers: ");
+        int numberAmount = scanner.nextInt();
         int currentNumber = 0;
 
         int highest = Integer.MIN_VALUE;
         int lowest = Integer.MAX_VALUE;
 
-        while (numberAmmount > 0){
+        while (numberAmount > 0) {
             System.out.print("next number:");
             currentNumber = scanner.nextInt();
-            if (currentNumber > highest){
+            if (currentNumber > highest) {
                 highest = currentNumber;
             }
-            if (currentNumber < lowest){
+            if (currentNumber < lowest) {
                 lowest = currentNumber;
             }
-            numberAmmount--;
+            numberAmount--;
 
         }
-
         return lowest + highest;
-    }
 
+    }
 }
