@@ -10,7 +10,7 @@ public class Main {
     }
 
     public static void roundingNumber(double number){
-        double roundedNumber = Math.floor(number);
+        double roundedNumber = Math.floor(number + 0.5);
         System.out.println("\nOriginal Number: " + number);
         System.out.println("Rounded Number: " + roundedNumber);
 

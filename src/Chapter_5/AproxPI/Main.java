@@ -4,10 +4,11 @@ public class Main {
 
     public static void main(String[] args){
         System.out.println(aproxPI(200000));
+        System.out.println(Math.PI);
 
     }
 
-    public static double aproxPI(int iterations){
+    public static double aproxPI(long iterations){
         double res = 4;
         double divider = 3;
         boolean isplus = false;
