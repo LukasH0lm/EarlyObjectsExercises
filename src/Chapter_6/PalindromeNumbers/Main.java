@@ -5,6 +5,10 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        controller();
+    }
+
+    public static void controller(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("-".repeat(103));
         System.out.println("    Lukash0lm's palindrome checker, enter a string to check if it's a palindrome, or \"exit\" to exit");
