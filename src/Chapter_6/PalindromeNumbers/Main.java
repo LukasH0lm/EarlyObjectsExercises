@@ -16,7 +16,7 @@ public class Main {
 
         while (true) {
             System.out.print("input: ");
-            String input = scanner.next();
+            String input = scanner.nextLine().trim();
             if (Objects.equals(input, "exit")){ break; }
             System.out.println(input +" is a palindrome? " + PalindromeChecker(input) + "\n");
         }
@@ -25,23 +25,15 @@ public class Main {
     public static boolean PalindromeChecker(String input){
 
         //checks if the String is empty or a single character, and therefore is a palindrome
-        if (input.equals("") || input.length() == 1){
+        if (input.length() <= 1){
             return true;
         }
 
-        int firstDigit = input.charAt(0);
-        int lastDigit = input.charAt(input.length() -1);
-
-        if (!(firstDigit == lastDigit)) {
+        if (!(input.charAt(0) == input.charAt(input.length() -1))) {
             return false;
         }
 
-        StringBuilder nextInput = new StringBuilder(input);
-
-        nextInput.deleteCharAt(0);
-        nextInput.deleteCharAt(nextInput.length() - 1);
-
-        return PalindromeChecker(nextInput.toString());
+        return PalindromeChecker(input.substring(1,input.length() - 1));
 
         }
 

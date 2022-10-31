@@ -1,0 +1,33 @@
+Write Java statements to accomplish each of the following tasks:
+
+a) Display the value of the tenth element of array r.
+System.out.println(r[9]);
+
+b) Initialize each of the six elements of one-dimensional integer array g to -1.
+
+for (int i = 0; i < array.length; i++) {
+    array[i] = -1;
+}
+
+c) Find the maximum of the first one-hundred elements of floating-point array c.
+
+int max = 0;
+for (int i = 0; i < array.length; i++) {
+    if ( array[i] > max){
+    max = array[i];
+
+    }
+}
+
+
+d) Copy a hundred-element array a into a hundred-element array b, but in reverse order.
+
+for (int i = 0; i < a.length; i++) {
+    for (int i = 99; i < 0; i--) {
+        a[i] = b[i];
+    }
+}
+
+e) Compute the product of the third to the tenth elements, both inclusive, in a hundredelement integer array w.
+
+Math.pow(w[3],w[10]);
