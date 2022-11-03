@@ -11,7 +11,7 @@ for (int i = 0; i < array.length; i++) {
 
 c) Find the maximum of the first one-hundred elements of floating-point array c.
 
-int max = 0;
+float max = ;
 for (int i = 0; i < array.length; i++) {
     if ( array[i] > max){
     max = array[i];
@@ -23,9 +23,8 @@ for (int i = 0; i < array.length; i++) {
 d) Copy a hundred-element array a into a hundred-element array b, but in reverse order.
 
 for (int i = 0; i < a.length; i++) {
-    for (int i = 99; i < 0; i--) {
-        a[i] = b[i];
-    }
+    b[i] = a[a.length - i - 1];
+
 }
 
 e) Compute the product of the third to the tenth elements, both inclusive, in a hundredelement integer array w.
