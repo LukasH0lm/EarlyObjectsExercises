@@ -1,5 +1,7 @@
 package Chapter_7.TurtleGraphics;
 
+import java.util.Arrays;
+
 public class Turtle {
 
     int[] position = {0,0};
@@ -13,11 +15,14 @@ public class Turtle {
     direction currentDirection;
     
 
-    char[][] board = new char[20][20];
+    direction[][][] board = new direction[20][20][4];
+    char[][] charboard = new char[20][20];
     boolean isPenDown = false;
     boolean isExiting = false;
     boolean isShowingStep = false;
-
+    boolean hasTurned = false;
+    direction previousTurn = direction.RIGHT;
+    int[] previousPosition = {0,0};
     public Turtle(){
         this.position[0] = 0;
         this.position[1] = 0;
@@ -28,7 +33,7 @@ public class Turtle {
     public void run(int[] instructions){
 
         step(instructions);
-        board[position[1]][position[0]] = 'o' ;
+
 
 
     }
@@ -62,6 +67,7 @@ public class Turtle {
                     }
 
                     draw();
+                    hasTurned = false;
                     spacesLeft--;
                     System.out.println("current position: x: " + position[0] +" y: " + position[1]);
                     System.out.println("moves left after move: " + spacesLeft);
@@ -86,7 +92,20 @@ public class Turtle {
     public void draw(){
 
         if (isPenDown) {
-            board[position[1]][position[0]] = 'x';
+
+            //draw
+
+            /*
+            if (!hasTurned){
+                if (currentDirection == direction.LEFT || currentDirection == direction.RIGHT ){
+                    charBoard[position[0]] ;
+                }else{
+                    board[position[1]][position[0]] = '│';
+                }
+            }else{
+                board[position[1]][position[0]] = '┓';
+            }*/
+
         }
 
     }
@@ -111,11 +130,49 @@ public class Turtle {
 
 
     public void displayBoard(){
-        for (char[] column:
+        for (direction[][] board:
                 board) {
             System.out.println();
-            for (char tile:
-                    column) {
+            for (direction[] tile:
+                    board) {
+                if (Arrays.asList(tile).contains(direction.UP)){
+                    if (Arrays.asList(tile).contains(direction.RIGHT)){
+                        if (Arrays.asList(tile).contains(direction.DOWN)){
+                            if (Arrays.asList(tile).contains(direction.LEFT)){
+                                System.out.print('╀');
+                            }else{
+                                System.out.print('├');
+
+                            }
+                        } else if (Arrays.asList(tile).contains(direction.LEFT)) {
+                            System.out.print('┴');
+                        } else{
+                            System.out.print('┕');
+                        }
+                    }else if(Arrays.asList(tile).contains(direction.DOWN)){
+                        if(Arrays.asList(tile).contains(direction.LEFT)){
+                            System.out.print('┥');
+                        }else {
+                            System.out.print('│');
+                        }
+
+                    } else if (Arrays.asList(tile).contains(direction.LEFT)) {
+                        System.out.print('┘');
+
+                    }
+                    //hvis den ikke har direction.UP
+                } else if (Arrays.asList(tile).contains(direction.RIGHT)) {
+                    if (Arrays.asList(tile).contains(direction.DOWN)){
+                        if (Arrays.asList(tile).contains(direction.LEFT)){
+                            System.out.print('┳');
+
+                        }else{
+                            System.out.print('┏');
+                        }
+                    }
+
+                }
+
                 System.out.print(tile);
 
             }
@@ -144,7 +201,7 @@ public class Turtle {
 
 
     public void turnLeft(){
-
+        previousTurn = currentDirection;
         if (currentDirection == direction.UP){
             currentDirection = direction.LEFT;
         }
@@ -157,10 +214,12 @@ public class Turtle {
         else if (currentDirection == direction.LEFT){
             currentDirection = direction.DOWN;
         }
+        hasTurned = true;
 
     }
 
     public void turnRight(){
+        previousTurn = currentDirection;
 
         if (currentDirection == direction.UP){
             currentDirection = direction.RIGHT;
@@ -174,7 +233,27 @@ public class Turtle {
         else if (currentDirection == direction.LEFT){
             currentDirection = direction.UP;
         }
+        hasTurned = true;
 
+    }
+    //nakket fra geeksforgeeks
+    public static int[] addX(int n, int arr[], int x)
+    {
+        int i;
+
+        // create a new array of size n+1
+        int[] newarr = new int[n + 1];
+
+        // insert the elements from
+        // the old array into the new array
+        // insert all elements till n
+        // then insert x at n+1
+        for (i = 0; i < n; i++)
+            newarr[i] = arr[i];
+
+        newarr[n] = x;
+
+        return newarr;
     }
 
 
